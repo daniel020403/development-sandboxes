@@ -1,0 +1,18 @@
+name: development-sandbox
+version: "3.7"
+
+services:
+  loopback4:
+    build:
+      context: ./loopback4
+      dockerfile: Dockerfile
+    image: loopback4:sandbox
+    container_name: loopback4
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - development-sandbox
+
+networks:
+  development-sandbox:
